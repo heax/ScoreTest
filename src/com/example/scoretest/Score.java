@@ -44,7 +44,6 @@ public class Score {
 		points = points+1000;
 		Log.i("score", "adds 1000 points");
 		stop = false;
-		setStop();
 		startComboTimer();
 		return points;
 	}
@@ -69,7 +68,7 @@ public class Score {
 			                
 		                }
 		            
-		    }, 0, 50);
+		    }, 10, 50);
 		
 		return comboScore1;
 	}

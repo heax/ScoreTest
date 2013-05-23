@@ -128,10 +128,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		if(cardNumbers == 3){
 			
 			Log.i("score", "true");
-			if(first){
-				Log.i("score", "first is true, stop is called");
-				scoreClass.setStop();
-			}
+
 			scoreClass.add1000Points();
 			score = score+scoreClass.getPoints();
 			
