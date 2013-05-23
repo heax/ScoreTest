@@ -18,10 +18,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	TextView txt;
 	private int cardNumbers = 0;
-	Score scoreClass = new Score(isSet());
+	Score scoreClass = new Score();
 	String theScore;
 	int score;
 	Toast toast1000, toast1500;
+	boolean first = false;
 	
 	
 	
@@ -125,20 +126,31 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	public Boolean isSet(){
 		if(cardNumbers == 3){
+			
 			Log.i("score", "true");
+			if(first){
+				Log.i("score", "first is true, stop is called");
+				scoreClass.setStop();
+			}
 			scoreClass.add1000Points();
 			score = score+scoreClass.getPoints();
+			
+			
 			if(score > 1500){
 				toast1500.show();
 			} else {
 				toast1000.show();
 			}
+			
 			theScore = Integer.toString(score);
 			txt.setText(theScore);
 			scoreClass.clearPoints();
 			scoreClass.clearComboScore1();
 			scoreClass.clearComboScore2();
 			scoreClass.clearAll();
+			first = true;
+			
+			
 			return true;
 		} else {
 			Log.i("score", "false");

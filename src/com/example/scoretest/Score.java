@@ -20,8 +20,13 @@ public class Score {
 	public String pointsString = "";
 	int comboScore1 = 0;
 	int comboScore2 = 0;
+	boolean stop = false;
 	
-	public Score (Boolean isSet){
+	public void setStop() {
+		stop = true;
+	}
+
+	public Score (){
 	}
 	
 	//Add combo points to "regular" points and return them
@@ -38,6 +43,8 @@ public class Score {
 	public int add1000Points(){
 		points = points+1000;
 		Log.i("score", "adds 1000 points");
+		stop = false;
+		setStop();
 		startComboTimer();
 		return points;
 	}
@@ -52,13 +59,17 @@ public class Score {
 			                comboScore1++;
 			                	
 			                //If the player takes too long, stop the counter
-			                if(comboScore1 > 100){
+			                if(comboScore1 > 1000){
 			                	cancel();
+			                } else if(stop){
+			                	cancel();
+			                	stop = false;
+			                	Log.i("score", "cancel timer");
 			                }
 			                
 		                }
 		            
-		    }, 500, 500);
+		    }, 0, 50);
 		
 		return comboScore1;
 	}
