@@ -17,7 +17,6 @@ public class Score {
 	private String pointsString = "";
 	private int comboScore1 = 0;
 	private int comboScore2 = 0;
-	private boolean killTimer = false;
 	
 	//return points
 	public int getPoints(){
@@ -48,11 +47,7 @@ public class Score {
 		                @Override
 		                public void run(){
 			                Log.i("score", this.toString()+" adds " + comboScore1+" to comboScore");
-			                comboScore1++;  //Skall man verkligen få poäng när man väntar skall inte dessa poäng drs bort???
-			                if (killTimer){
-			                	cancel();
-			                	killTimer=false;
-			                }
+			                comboScore1++;
 			                //If the player takes too long, stop the counter
 			                if(comboScore1 > 100){
 			                	cancel();

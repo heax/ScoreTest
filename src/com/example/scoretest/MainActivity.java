@@ -111,7 +111,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			scoreClass.add1000Points();
 			scoreClass.startComboTimer();
 			score = score+scoreClass.getPoints(); //Det känns lite konstigt att du har score både här och i scoreklassen kan du inte samla dem i score?
-			if(score > 1500){
+			if(score > 1500){      //Här visas denna alltid skall den verkligen det det är väl bara om scoreClass.getPoints() >1500
 				toast1500.show();
 			} else {
 				toast1000.show();
