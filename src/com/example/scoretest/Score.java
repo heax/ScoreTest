@@ -12,45 +12,47 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Score {
+	private Timer comboTimer;  //Här skapade du en timer innan nu ligger det i timermetoden.
+	private int points = 0;
+	private String pointsString = "";
+	private int comboScore1 = 0;
+	private int comboScore2 = 0;
+	private boolean killTimer = false;
 	
-	
-	Timer comboTimer = new Timer();
-	
-	public int points = 0;
-	public String pointsString = "";
-	int comboScore1 = 0;
-	int comboScore2 = 0;
-
-	public Score (){
+	//return points
+	public int getPoints(){
+		Log.i("score", "returns points");
+		return points;
 	}
 	
-	//Add combo points to "regular" points and return them
-	public int getPoints(){
+	//Mer logiskt om man räknar ut comboscore när man dödar timern för det hänger väl ihop.
+	public void killOldTimer(){
+		if (comboTimer!=null){
+			comboTimer.cancel();
+		}
 		comboScore2 = convertComboPoints(comboScore1);
 		points = points+comboScore2;
-		Log.i("score", "returns points");
-		
 		comboScore1 = 0;
-		return points;
 	}
 	
 	//Add 1000 points and start comboTimer to calculate bonus-points
-	public int add1000Points(){
+	public void add1000Points(){
 		points = points+1000;
 		Log.i("score", "adds 1000 points");
-		startComboTimer();
-		return points;
 	}
 	
 	//Start the time to calculate how much bonus-points you will get
 	public int startComboTimer(){
-			comboTimer.schedule(new TimerTask() {
+		comboTimer = new Timer(); //Här så vi skapar bara en timer när det behövs
+  		comboTimer.schedule(new TimerTask() {
 		                @Override
 		                public void run(){
-		                	
-			                Log.i("score", "adds to comboScore");
-			                comboScore1++;
-			                	
+			                Log.i("score", this.toString()+" adds " + comboScore1+" to comboScore");
+			                comboScore1++;  //Skall man verkligen få poäng när man väntar skall inte dessa poäng drs bort???
+			                if (killTimer){
+			                	cancel();
+			                	killTimer=false;
+			                }
 			                //If the player takes too long, stop the counter
 			                if(comboScore1 > 100){
 			                	cancel();
