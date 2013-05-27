@@ -33,10 +33,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		LayoutInflater inflater = getLayoutInflater();
 		View layout1 = inflater.inflate(R.layout.toast_layout,(ViewGroup) findViewById(R.id.toast_layout_root));
 		View layout2 = inflater.inflate(R.layout.toast_layout_1500,(ViewGroup) findViewById(R.id.toast_layout_1500_root));
-		View layout3 = inflater.inflate(R.layout.toast_layout_1500,(ViewGroup) findViewById(R.id.toast_layout_2000_root));
-		View layout4 = inflater.inflate(R.layout.toast_layout_1500,(ViewGroup) findViewById(R.id.toast_layout_3000_root));
-		View layout5 = inflater.inflate(R.layout.toast_layout_1500,(ViewGroup) findViewById(R.id.toast_layout_5000_root));
-		View layout6 = inflater.inflate(R.layout.toast_layout_1500,(ViewGroup) findViewById(R.id.toast_layout_10000_root));
+		View layout3 = inflater.inflate(R.layout.toast_layout_2000,(ViewGroup) findViewById(R.id.toast_layout_2000_root));
+		View layout4 = inflater.inflate(R.layout.toast_layout_3000,(ViewGroup) findViewById(R.id.toast_layout_3000_root));
+		View layout5 = inflater.inflate(R.layout.toast_layout_5000,(ViewGroup) findViewById(R.id.toast_layout_5000_root));
+		View layout6 = inflater.inflate(R.layout.toast_layout_10000,(ViewGroup) findViewById(R.id.toast_layout_10000_root));
 		toast1000 = new Toast(getApplicationContext());
 		toast1000.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 		toast1000.setDuration(Toast.LENGTH_SHORT);
