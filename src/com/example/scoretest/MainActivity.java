@@ -114,6 +114,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			//Anledningen är att jag bara vill läsa in hur mycket poäng som scoren ökas med för att kunna visa custom toasts
 			//där det står hur mycket poäng man fått
 			if(score > 1500){      //H�r visas denna alltid skall den verkligen det det �r v�l bara om scoreClass.getPoints() >1500
+				//Tanken är ju att det ska visa olika toasts beroende på hur mycket poäng man får men uppenbarligen fungerar
+				//det ju inte som det är tänkt, förstår inte varför.
 				toast1500.show();
 			} else {
 				toast1000.show();
