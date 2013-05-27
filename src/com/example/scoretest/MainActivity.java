@@ -67,7 +67,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		toast10000.setDuration(Toast.LENGTH_SHORT);
 		toast10000.setView(layout6);
 		
-		
+		//Create three clickable cards
 		ImageView img1 = (ImageView) findViewById(R.id.imageView1);
 		ImageView img2 = (ImageView) findViewById(R.id.imageView2);
 		ImageView img3 = (ImageView) findViewById(R.id.imageView3);
