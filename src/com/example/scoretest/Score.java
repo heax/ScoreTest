@@ -12,8 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Score {
-	private Timer comboTimer;  //H�r skapade du en timer innan nu ligger det i timermetoden.
-	private int points = 0;
+	
+	private Timer comboTimer;
+	private int points = 0;   //An int that contains the score you get for each set
 	private String pointsString = "";
 	private int comboScore1 = 0;
 	private int comboScore2 = 0;
