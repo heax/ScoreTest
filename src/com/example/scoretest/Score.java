@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Score {
-	private Timer comboTimer;  //Här skapade du en timer innan nu ligger det i timermetoden.
+	private Timer comboTimer;  //Hï¿½r skapade du en timer innan nu ligger det i timermetoden.
 	private int points = 0;
 	private String pointsString = "";
 	private int comboScore1 = 0;
@@ -24,7 +24,7 @@ public class Score {
 		return points;
 	}
 	
-	//Mer logiskt om man räknar ut comboscore när man dödar timern för det hänger väl ihop.
+	//Mer logiskt om man rï¿½knar ut comboscore nï¿½r man dï¿½dar timern fï¿½r det hï¿½nger vï¿½l ihop.
 	public void killOldTimer(){
 		if (comboTimer!=null){
 			comboTimer.cancel();
@@ -42,11 +42,11 @@ public class Score {
 	
 	//Start the time to calculate how much bonus-points you will get
 	public int startComboTimer(){
-		comboTimer = new Timer(); //Här så vi skapar bara en timer när det behövs
+		comboTimer = new Timer(); //Hï¿½r sï¿½ vi skapar bara en timer nï¿½r det behï¿½vs
   		comboTimer.schedule(new TimerTask() {
 		                @Override
 		                public void run(){
-			                Log.i("score", this.toString()+" adds " + comboScore1+" to comboScore");
+			                Log.i("score", this.toString()+" comboScore: " + comboScore1);
 			                comboScore1++;
 			                //If the player takes too long, stop the counter
 			                if(comboScore1 > 100){

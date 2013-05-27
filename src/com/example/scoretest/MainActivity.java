@@ -107,11 +107,13 @@ public class MainActivity extends Activity implements OnClickListener {
 	public Boolean isSet(){
 		if(cardNumbers == 3){
 			Log.i("score", "true");
-			scoreClass.killOldTimer(); ///Kan vi göra även om det är första gången räknar ut combo och addar det till points åsså är noll första gången
+			scoreClass.killOldTimer(); ///Kan vi gï¿½ra ï¿½ven om det ï¿½r fï¿½rsta gï¿½ngen rï¿½knar ut combo och addar det till points ï¿½ssï¿½ ï¿½r noll fï¿½rsta gï¿½ngen
 			scoreClass.add1000Points();
 			scoreClass.startComboTimer();
-			score = score+scoreClass.getPoints(); //Det känns lite konstigt att du har score både här och i scoreklassen kan du inte samla dem i score?
-			if(score > 1500){      //Här visas denna alltid skall den verkligen det det är väl bara om scoreClass.getPoints() >1500
+			score = score+scoreClass.getPoints(); //Det kï¿½nns lite konstigt att du har score bï¿½de hï¿½r och i scoreklassen kan du inte samla dem i score?
+			//Anledningen Ã¤r att jag bara vill lÃ¤sa in hur mycket poÃ¤ng som scoren Ã¶kas med fÃ¶r att kunna visa custom toasts
+			//dÃ¤r det stÃ¥r hur mycket poÃ¤ng man fÃ¥tt
+			if(score > 1500){      //Hï¿½r visas denna alltid skall den verkligen det det ï¿½r vï¿½l bara om scoreClass.getPoints() >1500
 				toast1500.show();
 			} else {
 				toast1000.show();
@@ -126,6 +128,14 @@ public class MainActivity extends Activity implements OnClickListener {
 			return false;
 		}
 	}
+
+	@Override
+	protected void onDestroy() {
+		scoreClass.killOldTimer();
+		super.onDestroy();
+	}
+	
+	
 
 		
 
