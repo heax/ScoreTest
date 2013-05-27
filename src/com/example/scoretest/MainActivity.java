@@ -182,6 +182,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		scoreClass.killOldTimer();
 		super.onDestroy();
 	}
+
+	@Override
+	protected void onPause() {
+		scoreClass.killOldTimer();
+		super.onPause();
+	}
 	
 	
 

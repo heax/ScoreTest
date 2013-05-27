@@ -77,7 +77,9 @@ public class Score {
 			comboPoints2 = 2000;
 		} else if (comboPoints < 45 && comboPoints > 30){
 			comboPoints2 = 1000;
-		} else if (comboPoints > 45){
+		} else if (comboPoints < 70 && comboPoints > 45){
+			comboPoints2 = 500;
+		} else {
 			comboPoints2 = 0;
 		}
 		return comboPoints2;
