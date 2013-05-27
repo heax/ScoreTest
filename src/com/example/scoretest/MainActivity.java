@@ -20,10 +20,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView txt;
 	private int cardNumbers = 0;
 	private Score scoreClass = new Score();
-	private String theScore;
 	private int score;
 	private Toast toast1000, toast1500;
-	private boolean first = false;
 	
 
 	@Override
@@ -107,23 +105,26 @@ public class MainActivity extends Activity implements OnClickListener {
 	public Boolean isSet(){
 		if(cardNumbers == 3){
 			Log.i("score", "true");
+			
 			scoreClass.killOldTimer(); ///Kan vi g�ra �ven om det �r f�rsta g�ngen r�knar ut combo och addar det till points �ss� �r noll f�rsta g�ngen
 			scoreClass.add1000Points();
 			scoreClass.startComboTimer();
 			score = score+scoreClass.getPoints(); //Det k�nns lite konstigt att du har score b�de h�r och i scoreklassen kan du inte samla dem i score?
-			//Anledningen är att jag bara vill läsa in hur mycket poäng som scoren ökas med för att kunna visa custom toasts
-			//där det står hur mycket poäng man fått
+			
+			//Anledningen är att jag bara vill läsa in hur mycket poäng som scoren ökas med för att kunna visa
+			// custom toasts där det står hur mycket poäng man fått
+			
 			if(score > 1500){      //H�r visas denna alltid skall den verkligen det det �r v�l bara om scoreClass.getPoints() >1500
-				//Tanken är ju att det ska visa olika toasts beroende på hur mycket poäng man får men uppenbarligen fungerar
-				//det ju inte som det är tänkt, förstår inte varför.
+				
+				//Tanken är ju att det ska visa olika toasts beroende på hur mycket poäng man får men uppenbarligen
+				//fungerar det ju inte som det är tänkt, förstår inte varför.
 				toast1500.show();
 			} else {
 				toast1000.show();
 			}
-			theScore = Integer.toString(score);
-			txt.setText(theScore);
+			
+			txt.setText(Integer.toString(score));
 			scoreClass.clearAll();
-			first = true;
 			return true;
 		} else {
 			Log.i("score", "false");
