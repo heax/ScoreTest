@@ -3,6 +3,7 @@ package com.example.scoretest;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Score scoreClass = new Score();
 	private int score;   //An int that saves your total score
 	private Toast toast1000, toast1500, toast2000, toast3000, toast5000, toast10000;
+	AnimationDrawable timeglassAnimation;
 	
 
 	@Override
@@ -66,6 +68,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		toast10000.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 		toast10000.setDuration(Toast.LENGTH_SHORT);
 		toast10000.setView(layout6);
+		
+		ImageView timeglassImage = (ImageView) findViewById(R.id.timeglassView);
+		timeglassImage.setBackgroundResource(R.drawable.timeglass_animation);
+		timeglassAnimation = (AnimationDrawable) timeglassImage.getBackground();
+
+		
 		
 		//Create three clickable cards
 		ImageView img1 = (ImageView) findViewById(R.id.imageView1);
@@ -138,6 +146,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			scoreClass.killOldTimer();
 			scoreClass.add1000Points();
 			scoreClass.startComboTimer();
+			if(timeglassAnimation.isRunning()){
+				timeglassAnimation.stop();
+			}
+			timeglassAnimation.start();
 			
 			//Add the score you get to the total score
 			score = score+scoreClass.getPoints(); 
